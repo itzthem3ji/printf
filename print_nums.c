@@ -18,7 +18,7 @@ int print_int(va_list l, flags_t *f)
 		res += _putchar('+');
 	if (n <= 0)
 		res++;
-	print_nums(n);
+	print_number(n);
 	return (res);
 }
 
@@ -32,7 +32,7 @@ int print_int(va_list l, flags_t *f)
 int print_unsigned(va_list l, flags_t *f)
 {
 	unsigned int u = va_arg(l, unsigned int);
-	char *str = int_base_to_str(u, 10, 0);
+	char *str = convert(u, 10, 0);
 
 	(void)f;
 	return (_puts(str));
@@ -43,7 +43,7 @@ int print_unsigned(va_list l, flags_t *f)
  * an integer and prints all its digits
  * @n: integer to be printed
  */
-void print_nums(int n)
+void print_number(int n)
 {
 	unsigned int n1;
 
@@ -56,7 +56,7 @@ void print_nums(int n)
 		n1 = n;
 
 	if (n1 / 10)
-		print_nums(n1 / 10);
+		print_number(n1 / 10);
 	_putchar((n1 % 10) + '0');
 }
 
