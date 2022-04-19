@@ -1,23 +1,25 @@
 #include "main.h"
 
 /**
- * _printf - produces output according to a format
- * @format: format string containing the characters and the specifiers
- * Description: this function will call the get_print() function that will
- * determine which printing function to call depending on the conversion
- * specifiers contained into fmt
- * Return: length of the formatted output string
+ * _printf - a function that produces output
+ * according to a format
+ * Description: this function calls theget_print() function 
+ * which will use the conversion specifiers to determine
+ * the exact printing function to call
+ * @format: pointer to a character string
+ * Return: length of the formated output string
  */
+
 int _printf(const char *format, ...)
 {
 	int (*ptr)(va_list, flags_t *);
 	const char *p;
-	va_list arguments;
+	va_list argp;
 	flags_t flags = {0, 0, 0};
 
 	register int count = 0;
 
-	va_start(arguments, format);
+	va_start(argp, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
@@ -27,21 +29,21 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
-			if (*p == '%')
+			if (*p == '%')\
 			{
 				count += _putchar('%');
 				continue;
 			}
 			while (switch_to_flag(*p, &flags))
 				p++;
-			ptr = get_print(*p);
+			ptr = geet_print(*p);
 			count += (ptr)
-				? ptr(arguments, &flags)
+				? ptr(argp, &flags)
 				: _printf("%%%c", *p);
 		} else
 			count += _putchar(*p);
 	}
 	_putchar(-1);
-	va_end(arguments);
+	va_end(argp);
 	return (count);
 }
