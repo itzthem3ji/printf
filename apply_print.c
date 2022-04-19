@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_print - selects the right printing function
+ * apply_print - selects the right printing function
  * depending on the conversion specifier passed to _printf
  * @s: character that holds the conversion specifier
  * Description: the function loops through the structs array
@@ -10,7 +10,7 @@
  * printing function
  * Return: a pointer to the matching printing function
  */
-int (*get_print(char s))(va_list, flags_t *)
+int (*apply_print(char s))(va_list, flags_t *)
 {
 	ph func_arr[] = {
 		{'i', print_int},

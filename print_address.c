@@ -18,7 +18,7 @@ int print_address(va_list l, flags_t *f)
 
 	if (!p)
 		return (_puts("(nil)"));
-	str = convert(p, 16, 1);
+	str = int_base_to_str(p, 16, 1);
 	count += _puts("0x");
 	count += _puts(str);
 	return (count);
