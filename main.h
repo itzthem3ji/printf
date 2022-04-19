@@ -127,6 +127,23 @@ void *spec_data_t_delete(spec_data_t *data);
 spec_data_t *spec_data_t_new(void);
 int spec_data_t_parse(spec_data_t *data, const char *format);
 int spec_data_t_leave(char *str, int status);
-int is_in_format_specifiers(char c)
+int is_in_format_specifiers(char c);
+pf_buf_t *pf_buf_t_new(size_t size);
+void *pf_buf_t_delete(pf_buf_t *buffer);
+void pf_buf_t_add_char(pf_buf_t *buffer, char to_add);
+void pf_buf_t_flush(pf_buf_t *buffer);
+void pf_buf_t_print(pf_buf_t *buffer);
+pf_buf_t *store_char(va_list c, spec_data_t *data);
+pf_buf_t *store_string(va_list str, spec_data_t *data);
+pf_buf_t *store_int(va_list list, spec_data_t *data);
+pf_buf_t *store_rev(va_list str, spec_data_t *data);
+pf_buf_t *store_rot13(va_list str, spec_data_t *data);
+pf_buf_t *store_binary(va_list list, spec_data_t *data);
+pf_buf_t *store_strnop(va_list list, spec_data_t *data);
+pf_buf_t *store_uint(va_list list, spec_data_t *data);
+pf_buf_t *store_uoct(va_list list, spec_data_t *data);
+pf_buf_t *store_lowuhex(va_list list, spec_data_t *data);
+pf_buf_t *store_upuhex(va_list list, spec_data_t *data);
+pf_buf_t *store_ptr(va_list list, spec_data_t *data);
 
 #endif
