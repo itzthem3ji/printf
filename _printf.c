@@ -12,12 +12,12 @@ int _printf(const char *format, ...)
 {
 	int (*ptr)(va_list, flags_t *);
 	const char *p;
-	va_list arguments;
+	va_list argp;
 	flags_t flags = {0, 0, 0};
 
 	register int count = 0;
 
-	va_start(arguments, format);
+	va_start(argp, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
@@ -36,12 +36,12 @@ int _printf(const char *format, ...)
 				p++;
 			ptr = apply_print(*p);
 			count += (ptr)
-				? ptr(arguments, &flags)
+				? ptr(argp, &flags)
 				: _printf("%%%c", *p);
 		} else
 			count += _putchar(*p);
 	}
 	_putchar(-1);
-	va_end(arguments);
+	va_end(argp);
 	return (count);
 }

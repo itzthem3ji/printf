@@ -48,10 +48,10 @@ char *int_base_to_str(unsigned long int num, int base, int lowercase);
 /* _printf */
 int _printf(const char *format, ...);
 
-/* get_print */
+/* apply_print */
 int (*apply_print(char s))(va_list, flags_t *);
 
-/* get_flag */
+/* switch_to_flag */
 int switch_to_flag(char s, flags_t *f);
 
 /* print_alpha */
