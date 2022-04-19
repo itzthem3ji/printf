@@ -6,19 +6,19 @@ The format specificiers we added are %x ,%X, %b, %o, %u, %r, %R, and %p.
 # Format Types (Types and Output)
 TYPE - OUTPUT
 
-c - Single character
+c - char
 
 s - String
 
-r - String in reverse
+r - reverse String
 
-R - String in rot13
+R - rot13 String 
 
-d - Integer in decimal
+d - Integer (decimal)
 
 i - integer
 
-% - Percent sign
+% - Percent
 
 Xl - Lowercase hex
 
@@ -36,11 +36,11 @@ F - expletive
 # Examples
 Character: printf("%c", Z); Output:: Z
 
-Expletive: printf("%F", anything); Output: FUCK
+Integer: printf("%i", 34); Output: 34
 
 String: printf("%s", Ooops, we printed a string to stdout!.); Output: Ooops, we printed a string to stdout!.
 
-Integer: printf("%i", 34); Output: 34
+
 
 
 # Requirements
