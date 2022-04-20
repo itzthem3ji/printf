@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * get_print_func - selects the correct function to perform the operation.
+ * get_print - selects the correct function to perform the operation.
  * @s: argument indentifier
  * @index: index for argument indentifier
  * Return: pointer to a function.
  */
-int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
+int (*get_print(const char *s, int index))(va_list, char *, unsigned int)
 {
-	print_t pr[] = {
+	print_t prt[] = {
 		{"c", print_chr}, {"s", print_str},
 		{"i", print_int}, {"d", print_int},
 		{"b", print_bnr}, {"u", print_unt},
@@ -38,11 +38,11 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 	int i = 0, j = 0, first_index;
 
 	first_index = index;
-	while (pr[i].type_arg)
+	while (prt[i].type_arg)
 	{
-		if (s[index] == pr[i].type_arg[j])
+		if (s[index] == prt[i].type_arg[j])
 		{
-			if (pr[i].type_arg[j + 1] != '\0')
+			if (prt[i].type_arg[j + 1] != '\0')
 				index++, j++;
 			else
 				break;
@@ -54,18 +54,18 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 			index = first_index;
 		}
 	}
-	return (pr[i].f);
+	return (prt[i].f);
 }
 
 /**
- * get_print_func - finds the format func
+ * get_print - finds the format func
  * @s: the format string
  * @ap: argument pointer
  * @params: the parameters struct
  *
  * Return: the number of bytes printed
  */
-int get_print_func(char *s, va_list ap, params_t *params)
+int get_print(char *s, va_list ap, params_t *params)
 {
 	int (*f)(va_list, params_t *) = get_specifier(s);
 
