@@ -10,7 +10,7 @@
 int prinnupx(va_list arguments, char *buf, unsigned int ibuf)
 {
 	int int_input, i, isnegative, count, first_digit;
-	char *hexadecimal, *binary;
+	char *hex, *binary;
 
 	int_input = va_arg(arguments, int);
 	isnegative = 0;
@@ -28,19 +28,19 @@ int prinnupx(va_list arguments, char *buf, unsigned int ibuf)
 	ibuf = handl_buf(buf, 'X', ibuf);
 	binary = malloc(sizeof(char) * (32 + 1));
 	binary = fill_binary_array(binary, int_input, isnegative, 32);
-	hexadecimal = malloc(sizeof(char) * (8 + 1));
-	hexadecimal = fill_hex_array(binary, hexadecimal, 1, 8);
-	for (first_digit = i = count = 0; hexadecimal[i]; i++)
+	hex = malloc(sizeof(char) * (8 + 1));
+	hex = fill_hex_array(binary, hex, 1, 8);
+	for (first_digit = i = count = 0; hex[i]; i++)
 	{
-		if (hexadecimal[i] != '0' && first_digit == 0)
+		if (hex[i] != '0' && first_digit == 0)
 			first_digit = 1;
 		if (first_digit)
 		{
-			ibuf = handl_buf(buf, hexadecimal[i], ibuf);
+			ibuf = handl_buf(buf, hex[i], ibuf);
 			count++;
 		}
 	}
 	free(binary);
-	free(hexadecimal);
+	free(hex);
 	return (count + 2);
 }
