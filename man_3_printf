@@ -1,7 +1,7 @@
 .TH man 3 "19 April 2022" "ALX SE" "_PRINTF"
 .SH NAME
 .B _printf
-- formatted output conversion
+- formatted output conversion with number of bytes printed as return
 .SH SYNOPSIS
 .B #include \(dqholberton.h\(dq
 .sp
@@ -12,6 +12,7 @@
 The function _printf is a variadic function that produces a string according to a
 .I format
 and prints it to the standard output, much like the C standard library function printf. It can receive a variable number of arguments.
+_printf is a variadic function with one mandatory argument format and extra arguments that can be none at all or many.
 This function has been created in the context of a first-year project for Holberton School.
 .sp
 .B Return value
