@@ -98,7 +98,7 @@ until _printf calls _putchar(-1), which \(dqflushes\(dq the buffer and resets th
 That way, _putchar only needs to call write one time, passing to it the whole buffer and the number of bytes in it, which is given by the value of the incrementing variable.
 .sp
 .SH BUGS
-_printf does not take care of length and precision modifiers yet. For example, _printf(\(dq%hx\(dq) will not produce the same output as the call to the standard library printf.
+_printf does not currently work on non-custom conversion modifiers for field width, precision and some flag characters such as ('0', '-'). For example, _printf(\(dq%hx\(dq) will not produce the same output as the call to the standard library printf.
 .SH AUTHORS
 Feyitimi Victor
 Ekaette Augustina Essien
