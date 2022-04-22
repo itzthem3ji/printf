@@ -100,4 +100,4 @@ That way, _putchar only needs to call write one time, passing to it the whole bu
 _printf does not take care of length and precision modifiers yet. For example, _printf(\(dq%hx\(dq) will not produce the same output as the call to the standard library printf.
 .SH AUTHORS
 Feyitimi Victor
-Ekaette Augustina Essien
+Ekaette Essien
