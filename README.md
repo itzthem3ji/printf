@@ -18,15 +18,24 @@ In the following examples, the main.c files are shown as examples. You can use t
 The prototypes of all your functions should be included in your header file called holberton.h
 Don’t forget to push your header file
 All your header files should be include guarded
+
 # Authorized functions and macros:
 write (man 2 write)
+
 malloc (man 3 malloc)
+
 free (man 3 free)
+
 va_start (man 3 va_start)
+
 va_end (man 3 va_end)
+
 va_copy (man 3 va_copy)
+
 va_arg (man 3 va_arg)
+
 Note that we will not provide the _putchar function for this project
+
 # Project Tasks
 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 Write a function that produces output according to a format.
